@@ -1,0 +1,6 @@
+- hosts: ungrouped
+  become: yes
+  vars:
+    user_name: jawello
+  roles:
+    - ubuntu-install-apps

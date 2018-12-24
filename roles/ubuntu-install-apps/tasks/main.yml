@@ -1,0 +1,19 @@
+---
+# tasks file for ubuntu-install-apps
+#- name: Install simple utils
+#  become: true
+#  apt:
+#    name: [ htop, 
+- name: Insert fake host to activate php storm
+  become: true
+  lineinfile:
+    path: /etc/hosts
+    line: 0.0.0.0 account.jetbrains.com
+  tags: phpstorm
+- debug:
+    msg: "Add this to phpstrom {{lookup('file', 'phpstorm_activation') }}"
+  tags: phpstorm 
+  roles:
+    - { role: cmprescott.chrome, become: yes, tags: chrome } 
+    - { role: oefenweb.pycharm, become: yes, tags: [ pycharm, python ] }
+    - { role: oefenweb.phpstorm, become: yes, tags: [ phpstorm, php ] }
