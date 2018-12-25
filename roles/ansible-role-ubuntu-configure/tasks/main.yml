@@ -12,8 +12,20 @@
   tags: phpstorm
 - debug:
     msg: "Add this to phpstrom {{lookup('file', 'phpstorm_activation') }}"
-  tags: phpstorm 
-  roles:
-    - { role: cmprescott.chrome, become: yes, tags: chrome } 
-    - { role: oefenweb.pycharm, become: yes, tags: [ pycharm, python ] }
-    - { role: oefenweb.phpstorm, become: yes, tags: [ phpstorm, php ] }
+  tags: phpstorm
+- include_role:
+    name: ansible-role-chrome
+  become: yes
+  tags: chrome
+- include_role:
+    name: ansible-role-pycharm
+  become: yes
+  tags: [ pycharm, python ]
+- include_role:
+    name: ansible-role-phpstorm
+  become: yes
+  tags: [ pycharm, python ]
+#  roles:
+#    - { role: cmprescott.chrome, become: yes, tags: chrome } 
+#    - { role: oefenweb.pycharm, become: yes, tags: [ pycharm, python ] }
+#    - { role: oefenweb.phpstorm, become: yes, tags: [ phpstorm, php ] }
