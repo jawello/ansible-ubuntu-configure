@@ -3,4 +3,4 @@
   vars:
     user_name: jawello
   roles:
-    - ubuntu-install-apps
+    - ansible-role-ubuntu-configure
