@@ -15,15 +15,21 @@
   tags: phpstorm
 - include_role:
     name: ansible-role-chrome
-  become: yes
+    apply:
+     become: yes
   tags: chrome
 - include_role:
     name: ansible-role-pycharm
-  become: yes
+    apply:
+      become: yes
+      pycharm_version: 2018.3
+      pycharm_edition: community
   tags: [ pycharm, python ]
 - include_role:
     name: ansible-role-phpstorm
-  become: yes
+    apply:
+      become: yes
+      phpstorm_version: 2018.2
   tags: [ pycharm, python ]
 #  roles:
 #    - { role: cmprescott.chrome, become: yes, tags: chrome } 
