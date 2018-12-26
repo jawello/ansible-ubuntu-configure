@@ -1,9 +1,9 @@
 [submodule "roles/ansible-role-pycharm"]
 	path = roles/ansible-role-pycharm
-	url = https://github.com/Oefenweb/ansible-pycharm.git
+	url = https://github.com/jawello/ansible-pycharm
 [submodule "roles/ansible-role-phpstorm"]
 	path = roles/ansible-role-phpstorm
-	url = https://github.com/Oefenweb/ansible-phpstorm.git
+	url = https://github.com/jawello/ansible-phpstorm
 [submodule "roles/ansible-role-chrome"]
 	path = roles/ansible-role-chrome
 	url = https://github.com/cmprescott/ansible-role-chrome.git
