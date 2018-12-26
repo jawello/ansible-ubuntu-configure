@@ -17,21 +17,20 @@
     name: ansible-role-chrome
     apply:
      become: yes
-  tags: chrome
+     tags: chrome
 - include_role:
     name: ansible-role-pycharm
     apply:
       become: yes
-      pycharm_version: 2018.3
-      pycharm_edition: community
-  tags: [ pycharm, python ]
+      tags: [ 'pycharm', 'python' ]
+  vars:
+    pycharm_version: '2018.3'
+    pycharm_edition: 'community'
 - include_role:
     name: ansible-role-phpstorm
     apply:
       become: yes
-      phpstorm_version: 2018.2
-  tags: [ pycharm, python ]
-#  roles:
-#    - { role: cmprescott.chrome, become: yes, tags: chrome } 
-#    - { role: oefenweb.pycharm, become: yes, tags: [ pycharm, python ] }
-#    - { role: oefenweb.phpstorm, become: yes, tags: [ phpstorm, php ] }
+      tags: [ 'phpstorm', 'configuartion' ]
+  vars:
+    phpstorm_version: 2018.2
+  tags: [ 'phpstorm', 'php' ]
