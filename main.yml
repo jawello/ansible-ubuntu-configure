@@ -4,4 +4,3 @@
     phpstorm_version: 2018.2
   roles:
     - ansible-role-ubuntu-configure
-#    - { role: ansible-role-chrome, become: yes }

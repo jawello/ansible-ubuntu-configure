@@ -4,15 +4,6 @@
 #  become: true
 #  apt:
 #    name: [ htop, 
-- name: Insert fake host to activate php storm
-  become: true
-  lineinfile:
-    path: /etc/hosts
-    line: 0.0.0.0 account.jetbrains.com
-  tags: phpstorm
-- debug:
-    msg: "Add this to phpstrom {{lookup('file', 'phpstorm_activation') }}"
-  tags: phpstorm
 - include_role:
     name: ansible-role-chrome
     apply:
