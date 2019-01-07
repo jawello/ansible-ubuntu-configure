@@ -10,3 +10,6 @@
 [submodule "roles/ansible-miniconda"]
 	path = roles/ansible-miniconda
 	url = https://github.com/jawello/ansible-miniconda.git
+[submodule "roles/ansible-role-gitkraken"]
+	path = roles/ansible-role-gitkraken
+	url = https://github.com/jawello/ansible-role-gitkraken.git
