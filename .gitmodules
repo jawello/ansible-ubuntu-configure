@@ -7,3 +7,6 @@
 [submodule "roles/ansible-role-chrome"]
 	path = roles/ansible-role-chrome
 	url = https://github.com/cmprescott/ansible-role-chrome.git
+[submodule "roles/ansible-miniconda"]
+	path = roles/ansible-miniconda
+	url = https://github.com/jawello/ansible-miniconda.git
