@@ -3,7 +3,12 @@
 #- name: Install simple utils
 #  become: true
 - name: Install main packeges
-    apt: [ htop, vim]
+  apt:
+     name: "{{ packages }}"
+  vars:
+    packages:
+    - htop
+    - vim
 - name: Install messengers, email, etc
     snap: [ telegram-desktopm, thunderbird, slack ]
 - name: Install media app
