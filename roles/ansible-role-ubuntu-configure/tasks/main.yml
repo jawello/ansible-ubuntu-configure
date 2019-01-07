@@ -10,9 +10,15 @@
     - htop
     - vim
 - name: Install messengers, email, etc
-    snap: [ telegram-desktopm, thunderbird, slack ]
+  snap:
+    name:
+      - telegram-desktopm
+      - thunderbird
+      - slack
 - name: Install media app
-    snap: [ vlc ]
+  snap:
+    name: 
+      - vlc
 - include_role:
     name: ansible-miniconda
     apply:
