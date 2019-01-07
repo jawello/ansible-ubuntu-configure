@@ -2,8 +2,18 @@
 # tasks file for ubuntu-install-apps
 #- name: Install simple utils
 #  become: true
-#  apt:
-#    name: [ htop, 
+- name: Install main packeges
+    apt: [ htop, vim]
+- name: Install messengers, email, etc
+    snap: [ telegram-desktopm, thunderbird, slack ]
+- name: Install media app
+    snap: [ vlc ]
+- include_role:
+    name: ansible-miniconda
+    apply:
+  tags: [ 'python' ] 
+- include_role:
+    name: ansible-role-gitkraken
 - include_role:
     name: ansible-role-chrome
     apply:
