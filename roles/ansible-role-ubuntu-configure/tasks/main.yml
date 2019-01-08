@@ -2,14 +2,14 @@
 # tasks file for ubuntu-install-apps
 #- name: Install simple utils
 #  become: true
-#- name: Install main packeges
-#  apt:
-#    name: "{{ packages }}"
-#    update_cahche: yes
-#  vars:
-#    packages:
-#    - htop
-#    - vim
+- name: Install main packeges
+  apt:
+    name: "{{ packages }}"
+    update_cache: yes
+  vars:
+    packages:
+    - htop
+    - vim
 #- name: Install messengers, email, etc
 #  snap:
 #    name:
