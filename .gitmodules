@@ -13,3 +13,6 @@
 [submodule "roles/ansible-role-gitkraken"]
 	path = roles/ansible-role-gitkraken
 	url = https://github.com/jawello/ansible-role-gitkraken.git
+[submodule "roles/ansible-role-docker"]
+	path = roles/ansible-role-docker
+	url = https://github.com/jawello/ansible-docker.git

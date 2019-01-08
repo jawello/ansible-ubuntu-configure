@@ -47,3 +47,13 @@
   vars:
     phpstorm_version: 2018.2
   tags: [ 'phpstorm', 'php' ]
+- include_role:
+    name: ansible-role-docker
+    apply:
+      become: yes
+  vars:  
+    docker__state: 'latest'
+    docker__users: "[ '{{ user_name }}' ]"
+    docker__registries: []
+  tags: [ 'docker' ]
+  
