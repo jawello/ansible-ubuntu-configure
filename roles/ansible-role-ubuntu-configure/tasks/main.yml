@@ -1,7 +1,10 @@
 ---
 # tasks file for ubuntu-install-apps
 - apt_repository:
-    repo: ppa:atareao/telegram
+    repo: "{{ item }}"    
+  with_list:
+    - ppa:ubuntu-mozilla-security/ppa
+    - ppa:atareao/telegram
 - name: Install main packeges
   apt:
     name: "{{ packages }}"
@@ -11,6 +14,7 @@
     - htop
     - vim
     - telegram
+    - thunderbird
 - name: Upgrade all packages to the latest version
   apt:
     name: "*"
