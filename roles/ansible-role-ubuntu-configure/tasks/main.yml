@@ -2,27 +2,32 @@
 # tasks file for ubuntu-install-apps
 #- name: Install simple utils
 #  become: true
-- name: Install main packeges
-  apt:
-     name: "{{ packages }}"
-  vars:
-    packages:
-    - htop
-    - vim
-- name: Install messengers, email, etc
-  snap:
-    name:
-      - telegram-desktopm
-      - thunderbird
-      - slack
-- name: Install media app
-  snap:
-    name: 
-      - vlc
+#- name: Install main packeges
+#  apt:
+#    name: "{{ packages }}"
+#    update_cahche: yes
+#  vars:
+#    packages:
+#    - htop
+#    - vim
+#- name: Install messengers, email, etc
+#  snap:
+#    name:
+#    - telegram-desktop
+#    - thunderbird
+#    - slack
+#- name: Install media app
+#  snap:
+#    name: 
+#    - vlc
 - include_role:
     name: ansible-miniconda
-    apply:
-  tags: [ 'python' ] 
+  tags: [ 'python' ]
+  vars:
+    miniconda_environments:
+      - name: prod
+        python_version: 2.7
+        pkgs: 'pip ipython' 
 - include_role:
     name: ansible-role-gitkraken
 - include_role:
