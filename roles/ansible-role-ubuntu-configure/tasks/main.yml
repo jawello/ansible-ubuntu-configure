@@ -1,7 +1,7 @@
 ---
 # tasks file for ubuntu-install-apps
-#- name: Install simple utils
-#  become: true
+- apt_repository:
+    repo: ppa:atareao/telegram
 - name: Install main packeges
   apt:
     name: "{{ packages }}"
@@ -10,16 +10,12 @@
     packages:
     - htop
     - vim
-#- name: Install messengers, email, etc
-#  snap:
-#    name:
-#    - telegram-desktop
-#    - thunderbird
-#    - slack
-#- name: Install media app
-#  snap:
-#    name: 
-#    - vlc
+    - telegram
+- name: Upgrade all packages to the latest version
+  apt:
+    name: "*"
+    state: latest
+    force_apt_get: yes
 - include_role:
     name: ansible-miniconda
   tags: [ 'python' ]
