@@ -16,3 +16,6 @@
 [submodule "roles/ansible-role-docker"]
 	path = roles/ansible-role-docker
 	url = https://github.com/jawello/ansible-docker.git
+[submodule "roles/ansible-role-docker-pgadmin"]
+	path = roles/ansible-role-docker-pgadmin
+	url = https://github.com/jawello/ansible-docker-pgadmin.git
