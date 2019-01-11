@@ -63,6 +63,9 @@
     docker__users: "[ '{{ user_name }}' ]"
     docker__registries: []
   tags: [ 'docker' ]
+- pip:
+    name: docker-py
+    state: latest
 - include_role:
     name: ansible-role-docker-pgadmin
   vars:
