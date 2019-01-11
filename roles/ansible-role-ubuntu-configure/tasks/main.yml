@@ -71,3 +71,4 @@
   vars:
     pgadmin_default_user_email: "{{ user_email }}"
     pgadmin_default_user_password: "{{ user_password }}"
+  tags: pgadmin
