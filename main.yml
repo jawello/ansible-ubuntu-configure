@@ -3,6 +3,55 @@
     user_name: admin
     user_email: admin@admin.com
     user_password: secret
-    phpstorm_version: 2018.2
+  pre_tasks:
+    - pip:
+        name: docker-py
+        state: latest
+      tags: [ 'docker', 'pgadmin' ]
+  tasks:
+    - apt_repository:
+        repo: "{{ item }}"    
+      with_list:
+          - ppa:ubuntu-mozilla-security/ppa
+          - ppa:atareao/telegram
+      tags: messengers
+    - name: Install messengers
+      apt:
+        name: "{{ packages }}"
+        update_cache: yes
+      tags: messengers
+      vars:
+        packages:
+          - telegram
+          - thunderbird
+    - apt_repository:
+        repo: "ppa:mosquitto-dev/mosquitto-ppa"
+      tags: mqtt-client
+    - name: Install mqtt-client
+      apt:
+        name: mosquitto-clients
+        update_cache: yes
+      tags: mqtt-client
+    - name: Install main packeges
+      apt:
+        name: "{{ packages }}"
+        update_cache: yes
+      vars:
+        packages:
+          - htop
+          - vim
+          - mc
+  post_tasks:
+    - name: Upgrade all packages to the latest version
+      apt:
+        name: "*"
+        state: latest
+        force_apt_get: yes
   roles:
-    - ansible-role-ubuntu-configure
+    - { role: ansible-role-chrome, become: yes, tags: chrome }
+    - { role: ansible-miniconda, tags: python }
+    - { role: ansible-role-pycharm, become: yes, tags: [ 'pycharm', 'python' ], vars: { pycharm_version: '2018.3', pycharm_edition: 'community' } }
+    - { role: ansible-role-gitkraken }
+    - { role: ansible-role-phpstorm, become: yes, tags: [ 'phpstorm' ], vars: { phpstorm_version: 2018.2 } }
+    - { role: ansible-role-docker, become: yes, tags: [ 'docker', 'pgadmin' ], vars: { docker__state: 'latest', docker__users: "[ '{{ user_name }}' ]", docker__registries: [] } }
+    - { role: ansible-role-docker-pgadmin, tags: pgadmin, vars: { pgadmin_default_user_email: "{{ user_email }}", pgadmin_default_user_password: "{{ user_password }}"} }
