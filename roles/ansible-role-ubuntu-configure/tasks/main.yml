@@ -23,12 +23,7 @@
     force_apt_get: yes
 - include_role:
     name: ansible-miniconda
-  tags: [ 'python' ]
-  vars:
-    miniconda_environments:
-      - name: prod
-        python_version: 2.7
-        pkgs: 'pip ipython' 
+  tags: [ 'python' ] 
 - include_role:
     name: ansible-role-gitkraken
 - include_role:
