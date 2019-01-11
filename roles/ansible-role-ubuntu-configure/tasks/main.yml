@@ -35,11 +35,13 @@
     apply:
      become: yes
      tags: chrome
+  tags: chrome
 - include_role:
     name: ansible-role-pycharm
     apply:
       become: yes
       tags: [ 'pycharm', 'python' ]
+  tags: [ 'pycharm', 'python' ]
   vars:
     pycharm_version: '2018.3'
     pycharm_edition: 'community'
@@ -55,9 +57,14 @@
     name: ansible-role-docker
     apply:
       become: yes
+      tags: [ 'docker' ]
   vars:  
     docker__state: 'latest'
     docker__users: "[ '{{ user_name }}' ]"
     docker__registries: []
   tags: [ 'docker' ]
-  
+- include_role:
+    name: ansible-role-docker-pgadmin
+  vars:
+    pgadmin_default_user_email: "{{ user_email }}"
+    pgadmin_default_user_password: "{{ user_password }}"

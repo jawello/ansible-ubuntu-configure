@@ -1,6 +1,8 @@
 - hosts: ungrouped
   vars:
     user_name: jawello
+    user_email: akhadiev@humanplus.ru
+    user_password: secret
     phpstorm_version: 2018.2
   roles:
     - ansible-role-ubuntu-configure
